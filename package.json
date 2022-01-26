@@ -1,0 +1,15 @@
+{
+  "name": "track-prices-app",
+  "version": "1.0.0",
+  "description": "Essa é uma aplicação que monitra preços de determinados produtos no site da Amazon",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^13.1.2"
+  }
+}
