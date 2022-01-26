@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-const $ = require('cheerio');
+// const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const nodemailer = require('nodemailer');
 
@@ -17,16 +17,21 @@ async function checkPrice(page) {
   await page.reload();
   let html = await page.evaluate(() => document.body.innerHTML);
 
-  let itemPrice = await page.evaluate(() => {
-    return document.querySelector('#price').innerText;
+  let currentPrice = await page.evaluate(() => {
+    let itemPrice = document.querySelector('#price').innerText;
+    // let price = Number(itemPrice.replace(/[^0-9.-]+/g, ""));
+    return itemPrice;
   });
 
-  console.log(itemPrice);
+  // console.log(itemPrice);
+  // console.log(price);
 
-  // $('#price', html).each(function () {
-  //   let price = $(this).text();
-  //   console.log(price);
-  // });
+  if(currentPrice < 35) {
+    console.log("HORA DE COMPRAR")
+  } else {
+    console.log('nao comprar')
+  }
+
 }
 
 async function monitor() {
