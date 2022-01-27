@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-// const $ = require('cheerio');
 const CronJob = require('cron').CronJob;
 const nodemailer = require('nodemailer');
 require('dotenv').config()
@@ -67,11 +66,3 @@ async function sendNotification(price) {
 }
 
 startTracking();
-
-
-// async function monitor() {
-//   let page = await configureBrowser();
-//   await checkPrice(page);
-// }
-
-// monitor();
